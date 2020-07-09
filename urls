@@ -1,0 +1,3 @@
+https://maps.googleapis.com/maps/api/distancematrix/json?key=AIzaSyCDpsGLGxA8sm686Q_or5cVFQWUF_zLErs&origins=Perth%%2C+Australia%%7CSydney%%2C+Australia%%7CMelbourne%%2C+Australia%%7CAdelaide%%2C+Australia%%7CBrisbane%%2C+Australia%%7CDarwin%%2C+Australia%%7CHobart%%2C+Australia%%7CCanberra%%2C+Australia&destinations=Uluru%%2C+Australia%%7CKakadu%%2C+Australia%%7CBlue+Mountains%%2C+Australia%%7CBungle+Bungles%%2C+Australia%%7CThe+Pinnacles%%2C+Australia
+
+https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCDpsGLGxA8sm686Q_or5cVFQWUF_zLErs&components=country%%3AFR&address=DAMELEVIERES+Louis+Aragon+élémentaire-CE2+CM1
