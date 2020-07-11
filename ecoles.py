@@ -72,23 +72,23 @@ ECOLES = [
     "NANCY,+Ecole+primaire+Braconnot",
     "NANCY,+Ecole+primaire+Braconnot",
     "NANCY,+Ecole+primaire+Didion+Raugraff",
-    "NANCY,+Ecole+primaire+III+Maisons",
-    "NANCY,+Ecole+primaire+III+Maisons",
+    "NANCY,+Ecole+primaire+3+Maisons",
+    "NANCY,+Ecole+primaire+3+Maisons",
     "NANCY,+Ecole+primaire+A.+Mézières",
     "NANCY,+Ecole+primaire+Boudonville",
-    "NANCY,+Ecole+primaire+Charles+III",
+    "NANCY,+Ecole+primaire+Charles+3",
     "NANCY,+Ecole+primaire+Didion",
     "NANCY,+Ecole+primaire+Gallé",
-    "NANCY,+Ecole+maternelle+Gebhart",
-    "NANCY,+Ecole+primaire+III+Maisons",
-    "NANCY,+Ecole+primaire+III+Maisons",
+    "30 Rue Emile Gebhart, 54000 Nancy, France",
+    "NANCY,+Ecole+primaire+3+Maisons",
+    "NANCY,+Ecole+primaire+3+Maisons",
     "NANCY,+Ecole+primaire+M.+Leroy",
     "NANCY,+Ecole+primaire+Stanislas",
     "NANCY,+Ecole+primaire+Boudonville",
     "NANCY,+Ecole+primaire+Boudonville",
     "NANCY,+Ecole+primaire+Braconnot",
     "NANCY,+Ecole+primaire+Roberty",
-    "NANCY,+Ecole+primaire+III+Maisons",
+    "NANCY,+Ecole+primaire+3+Maisons",
     "NANCY,+Ecole+primaire+Stanislas",
     "LAXOU+Ecole+primaire+V.Hugo",
     "MAXEVILLE+Ecole+primaire+Vautrin",
@@ -137,7 +137,7 @@ ECOLES = [
     "FOUG,+Ecole+primaire+Luton",
     "DOMMARTIN+LES+TOUL,+Ecole+primaire+J.+Ferry",
     "TOUL,+Ecole+primaire+La+Sapinière",
-    "FAVIERES,+ecole+primaire",
+    "24 Rue de l'Abbé Lenfant, 54115 Favières, France",
     "COLOMBEY+LES+BELLES,+ecole+primaire",
     "COLOMBEY+LES+BELLES,+ecole+primaire",
     "VILLEY+SAINT+ETIENNE+ecole+primaire",
@@ -146,7 +146,7 @@ ECOLES = [
     "TOUL,+ecole+primaire+Saint+Evre",
     "FOUG,+Ecole+primaire+Les+Tilleuls",
     "DOMEVRE+EN+HAYE,+ecole+primaire",
-    "VANNES,+ecole+primaire",
+    "VANNES+LE+CHATEL,+ecole+primaire",
     "ALLAIN,+ecole+primaire",
     "VANDOEUVRE,+Ecole+primaire+Europe+Nations",
     "VANDOEUVRE,+Ecole+primaire+Europe+Nations",
@@ -188,7 +188,7 @@ _distances = []
 _durations = []
 
 for _ecole in ECOLES:
-    _loc = _gmaps_client.geocode(_ecole, components={"country": "FR"})
+    _loc = _gmaps_client.geocode(_ecole, components={"country": "FR", "administrative_area_level_1": "Grand+Est"})
     _dist = _gmaps_client.distance_matrix(_ecole, DESTINATION)
     # address
     if len(_loc):
@@ -227,3 +227,9 @@ with open("distances.csv", "w") as _file:
 with open("durations.csv", "w") as _file:
     for _d in _durations:
         _file.write("{}\n".format(round(_d, 0))) # in minutes
+
+with open("geolocations.csv", "w") as _file:
+    for _g in _geolocations:
+        _file.write("{};{}\n".format(
+            round(_g.get("lat", 48.7), 4),
+            round(_g.get("lng", 6.16), 4)))
