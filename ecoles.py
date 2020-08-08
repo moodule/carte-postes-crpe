@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 
 """
-==============
-Second Hand Ad
-==============
+====
+CRPE
+====
 
-Base class for all the specific ad items.
+Maps all the job offers and rank them.
+Designed to help choose the best position you're likely to
+get out of 100s.
 """
 
 from __future__ import division, print_function, absolute_import
@@ -22,10 +24,16 @@ import googlemaps
 PP = pprint.PrettyPrinter(indent=4)
 
 #####################################################################
-# SCHOOLS
+# GMAPS API
 #####################################################################
 
-KEY = "AIzaSyCDpsGLGxA8sm686Q_or5cVFQWUF_zLErs"
+KEY = ""
+with open("gmap_api-key.txt", "r") as __file:
+    KEY = __file.readline()
+
+#####################################################################
+# SCHOOLS
+#####################################################################
 
 ECOLES = [
     "BAYON,+Ecole+primaire+F.+Dolto",
